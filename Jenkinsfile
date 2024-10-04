@@ -17,7 +17,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'selmen-branch', credentialsId: 'Git_jenkins', url: 'https://github.com/selmenmabrouk/Devops-project-5bi.git'
+                git branch: 'selmen-branch', credentialsId: 'Git__jenkins', url: 'https://github.com/selmenmabrouk/Devops-project-5bi.git'
             }
         }
 
