@@ -20,12 +20,7 @@ pipeline {
                 git branch: 'selmen-branch', credentialsId: 'Git__jenkins', url: 'https://github.com/selmenmabrouk/Devops-project-5bi.git'
             }
         }
-
-         stage('Build') {
-            steps {
-                sh 'mvn clean install'
-            }
-        }
+ 
     }
 
     post {
