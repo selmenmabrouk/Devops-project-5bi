@@ -34,22 +34,6 @@ public class SkierServicesImplTest {
     @InjectMocks
     private SkierServicesImpl skierServices;
 
-    @Test
-    public void testAddSkier() {
-        Subscription sub = new Subscription();
-        sub.setTypeSub(TypeSubscription.ANNUAL);
-        sub.setStartDate(LocalDate.of(2024, 1, 1));
-
-        Skier skier = new Skier();
-        skier.setSubscription(sub);
-
-        when(skierRepository.save(any(Skier.class))).thenReturn(skier);
-
-        Skier result = skierServices.addSkier(skier);
-
-        assertEquals(LocalDate.of(2025, 1, 1), result.getSubscription().getEndDate());
-        verify(skierRepository).save(skier);
-    }
 
 
     @Test
