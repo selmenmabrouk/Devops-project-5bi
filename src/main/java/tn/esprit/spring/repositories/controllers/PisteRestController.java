@@ -1,4 +1,4 @@
-package tn.esprit.spring.controllers;
+package tn.esprit.spring.repositories.controllers;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
