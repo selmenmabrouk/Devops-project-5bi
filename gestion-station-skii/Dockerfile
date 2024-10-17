@@ -1,14 +1,10 @@
-# Utiliser l'image de base OpenJDK 17
-FROM openjdk:17-alpine
+FROM maven:3.9.0-eclipse-temurin-17 as build
+WORKDIR /app
+COPY . .
+RUN mvn clean install
 
-# Créer un volume pour les logs (optionnel)
-VOLUME /tmp
-
-# Copier le fichier JAR dans l'image Docker
-COPY target/gestion-station-skii-0.0.1-SNAPSHOT.jar /app/gestion-station-skii.jar
-
-# Exposer le port utilisé par l'application
-EXPOSE 8082
-
-# Démarrer l'application
-ENTRYPOINT ["java", "-jar", "/app/gestion-station-skii.jar"]
+FROM eclipse-temurin:17.0.6_10-jdk
+WORKDIR /app
+COPY --from=build /app/target/gestion-station-skii-0.0.1-SNAPSHOT.jar /app/
+EXPOSE 8080
+CMD ["java", "-jar","gestion-station-skii-0.0.1-SNAPSHOT.jar"]
