@@ -5,9 +5,11 @@ import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.scheduling.annotation.Scheduled;
 import tn.esprit.spring.entities.Skier;
 import tn.esprit.spring.entities.Subscription;
@@ -16,6 +18,7 @@ import tn.esprit.spring.repositories.ISkierRepository;
 import tn.esprit.spring.repositories.ISubscriptionRepository;
 import tn.esprit.spring.services.SubscriptionServicesImpl;
 
+
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Set;
@@ -23,7 +26,7 @@ import java.util.List;
 import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@ExtendWith(MockitoExtension.class)
 class SubscriptionServicesImplTest {
 
 	@Mock
