@@ -1,14 +1,15 @@
-# Use a different base image
-FROM openjdk:17-jdk-slim
+# Utiliser l'image de base OpenJDK 17
+FROM openjdk:17-alpine
 
-# Create a directory for your application
-WORKDIR /app
+# Créer un volume pour les logs (optionnel)
+VOLUME /tmp
 
-# Copy your JAR file into the container
+# Copier le fichier JAR dans l'image Docker
 COPY target/gestion-station-skii-0.0.1-SNAPSHOT.jar /app/gestion-station-skii.jar
 
-# Expose the port your application runs on (change if necessary)
-EXPOSE 8080
+# Exposer le port utilisé par l'application
+EXPOSE 8082
 
-# Command to run your application
-CMD ["java", "-jar", "/app/gestion-station-skii.jar"]
+# Démarrer l'application
+ENTRYPOINT ["java", "-jar", "/app/gestion-station-skii.jar"]
+
